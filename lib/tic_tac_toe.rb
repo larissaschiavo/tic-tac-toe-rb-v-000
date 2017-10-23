@@ -57,3 +57,7 @@ def turn(board)
   move(board, i)
   display_board(board)
 end
+
+def turn_count(board)
+  board.count{|idx| idx == "X" || idx == "O"}
+end
