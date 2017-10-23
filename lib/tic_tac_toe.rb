@@ -57,17 +57,14 @@ end
 
 def turn(board)
   puts "Please enter 1-9:"
-  inp = gets.chomp
-
-  i = input_to_index(inp)
-
-  if valid_move?(board,i) == false
-    puts "Please re-enter your input:"
-    gets.chomp
+  user_input = gets.strip
+  index = input_to_index(user_input)
+  if valid_move?(board, index)
+    move(board, index, current_player(board))
+    display_board(board)
+  else
+    turn(board)
   end
-
-  move(board, i)
-  display_board(board)
 end
 
 def turn_count(board)
